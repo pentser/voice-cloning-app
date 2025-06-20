@@ -48,8 +48,7 @@ KINDE_POST_LOGOUT_REDIRECT_URL=http://localhost:3000
 KINDE_POST_LOGIN_REDIRECT_URL=http://localhost:3000/dashboard
 
 # UploadThing
-UPLOADTHING_SECRET=your_uploadthing_secret
-UPLOADTHING_APP_ID=your_uploadthing_app_id
+UPLOADTHING_TOKEN=your_uploadthing_token
 
 # ElevenLabs API
 ELEVENLABS_API_KEY=your_elevenlabs_api_key
@@ -89,8 +88,12 @@ npm run db:push
 
 1. Go to [UploadThing](https://uploadthing.com) and create an account
 2. Create a new app
-3. Get your App ID and Secret from the dashboard
-4. Add them to your `.env.local` file
+3. Get your Token from the dashboard:
+   - Navigate to your app's dashboard
+   - Go to "API Keys" section
+   - Select the "V7" tab
+   - Copy the `UPLOADTHING_TOKEN` (this contains app ID, region, and API key info)
+4. Add the token to your `.env.local` file
 
 ### 5. ElevenLabs API Setup
 
