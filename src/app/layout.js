@@ -1,4 +1,5 @@
 import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
 
 export const metadata = {
   title: "Voice Cloning App",
@@ -8,10 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-gray-50 min-h-screen">
-        <div className="min-h-screen flex flex-col">
+      <body suppressHydrationWarning={true}>
+        <ClientLayout>
           {children}
-        </div>
+        </ClientLayout>
       </body>
     </html>
   );
