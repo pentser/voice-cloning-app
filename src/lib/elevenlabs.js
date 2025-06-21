@@ -44,9 +44,23 @@ export class ElevenLabsAPI {
       };
     } catch (error) {
       console.error('ElevenLabs API Error:', error.response?.data || error.message);
+      let errorMessage = 'Unknown error occurred';
+      
+      if (error.response?.data) {
+        if (typeof error.response.data === 'object') {
+          errorMessage = error.response.data.detail || 
+                        error.response.data.message || 
+                        JSON.stringify(error.response.data);
+        } else {
+          errorMessage = error.response.data;
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
       return {
         success: false,
-        error: error.response?.data?.detail || error.message,
+        error: errorMessage,
       };
     }
   }
@@ -61,9 +75,23 @@ export class ElevenLabsAPI {
       };
     } catch (error) {
       console.error('ElevenLabs API Error:', error.response?.data || error.message);
+      let errorMessage = 'Unknown error occurred';
+      
+      if (error.response?.data) {
+        if (typeof error.response.data === 'object') {
+          errorMessage = error.response.data.detail || 
+                        error.response.data.message || 
+                        JSON.stringify(error.response.data);
+        } else {
+          errorMessage = error.response.data;
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
       return {
         success: false,
-        error: error.response?.data?.detail || error.message,
+        error: errorMessage,
       };
     }
   }
@@ -92,9 +120,23 @@ export class ElevenLabsAPI {
       };
     } catch (error) {
       console.error('ElevenLabs API Error:', error.response?.data || error.message);
+      let errorMessage = 'Unknown error occurred';
+      
+      if (error.response?.data) {
+        if (typeof error.response.data === 'object') {
+          errorMessage = error.response.data.detail || 
+                        error.response.data.message || 
+                        JSON.stringify(error.response.data);
+        } else {
+          errorMessage = error.response.data;
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
       return {
         success: false,
-        error: error.response?.data?.detail || error.message,
+        error: errorMessage,
       };
     }
   }
@@ -106,9 +148,23 @@ export class ElevenLabsAPI {
       return { success: true };
     } catch (error) {
       console.error('ElevenLabs API Error:', error.response?.data || error.message);
+      let errorMessage = 'Unknown error occurred';
+      
+      if (error.response?.data) {
+        if (typeof error.response.data === 'object') {
+          errorMessage = error.response.data.detail || 
+                        error.response.data.message || 
+                        JSON.stringify(error.response.data);
+        } else {
+          errorMessage = error.response.data;
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
       return {
         success: false,
-        error: error.response?.data?.detail || error.message,
+        error: errorMessage,
       };
     }
   }

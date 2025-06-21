@@ -2,6 +2,7 @@
   "name": "voice-cloning-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -11,6 +12,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
+    "db:seed": "node scripts/seed.js",
+    "db:check": "node scripts/check-env.js",
     "verify-setup": "node scripts/verify-setup.js"
   },
   "dependencies": {

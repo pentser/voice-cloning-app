@@ -59,11 +59,17 @@ export default function VoiceCloneUploader() {
         // Refresh the voice clones list
         window.location.reload();
       } else {
-        setMessage(`Failed to clone voice: ${data.error}`);
+        const errorMessage = typeof data.error === 'object' 
+          ? JSON.stringify(data.error) 
+          : data.error || 'Unknown error occurred';
+        setMessage(`Failed to clone voice: ${errorMessage}`);
       }
     } catch (error) {
       console.error('Clone error:', error);
-      setMessage('Failed to clone voice. Please try again.');
+      const errorMessage = typeof error === 'object' 
+        ? error.message || JSON.stringify(error) 
+        : error || 'Unknown error occurred';
+      setMessage(`Failed to clone voice: ${errorMessage}. Please try again.`);
     } finally {
       setIsCloning(false);
     }

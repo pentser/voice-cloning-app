@@ -35,8 +35,11 @@ export async function POST(request) {
     );
 
     if (!cloneResult.success) {
+      const errorMessage = typeof cloneResult.error === 'object' 
+        ? JSON.stringify(cloneResult.error) 
+        : cloneResult.error || 'Unknown error occurred';
       return NextResponse.json(
-        { error: `Failed to clone voice: ${cloneResult.error}` },
+        { error: `Failed to clone voice: ${errorMessage}` },
         { status: 500 }
       );
     }
@@ -56,8 +59,11 @@ export async function POST(request) {
     });
   } catch (error) {
     console.error('Voice clone error:', error);
+    const errorMessage = typeof error === 'object' 
+      ? error.message || JSON.stringify(error) 
+      : error || 'Internal server error';
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: `Internal server error: ${errorMessage}` },
       { status: 500 }
     );
   }
